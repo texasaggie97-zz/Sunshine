@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Sunshine</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">設定</string>
+    <string name="action_refresh">更新</string>
+    <string name="action_view_location">場所を表示</string>
+    <string name="action_share">共有</string>
+    <string name="title_activity_day_detail">詳細</string>
+    <string name="title_activity_settings">設定</string>
+    <string name="pref_location_label">場所</string>
+    <string name="pref_location_key" translatable="false">Location</string>
+    <string name="pref_location_default" translatable="false">78717</string>
+    <string name="pref_units_label">単位</string>
+    <string name="pref_units_key" translatable="false">Units</string>
+    <string name="pref_units_default" translatable="false">metric</string>
+    <string name="pref_units_imperial">ヤード・ポンド法</string>
+    <string name="pref_units_metric">メートル法</string>
+    <string name="pref_units_imperial_option">ヤード・ポンド法</string>
+    <string name="pref_units_metric_option">メートル法</string>
+</resources>

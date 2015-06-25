@@ -18,7 +18,6 @@ package com.markesilva.sunshine.app.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.markesilva.sunshine.app.data.WeatherContract.LocationEntry;
 import com.markesilva.sunshine.app.data.WeatherContract.WeatherEntry;
@@ -79,10 +78,8 @@ public class WeatherDbHelper extends SQLiteOpenHelper {
                 LocationEntry.COLUMN_COORD_LONG + " REAL NOT NULL" +
                 ");";
 
-        Log.v(LOG_TAG, "Create weather table: " + SQL_CREATE_WEATHER_TABLE);
         sqLiteDatabase.execSQL(SQL_CREATE_WEATHER_TABLE);
 
-        Log.v(LOG_TAG, "Create location table: " + SQL_CREATE_LOCATION_TABLE);
         sqLiteDatabase.execSQL(SQL_CREATE_LOCATION_TABLE);
     }
 
