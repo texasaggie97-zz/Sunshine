@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.widget.ShareActionProvider;
 
 
-public class DayDetailActivity extends ActionBarActivity
+public class DetailActivity extends ActionBarActivity
 {
     private ShareActionProvider mShareActionProvider;
 
@@ -19,8 +19,14 @@ public class DayDetailActivity extends ActionBarActivity
         setContentView(R.layout.activity_day_detail);
         if (savedInstanceState == null)
         {
+            Bundle args = new Bundle();
+            args.putParcelable(DetailFragment.DETAIL_URI, getIntent().getData());
+
+            DetailFragment f = new DetailFragment();
+            f.setArguments(args);
+
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.day_detail, new DayDetailActivityFragment())
+                    .replace(R.id.weather_detail_container, f)
                     .commit();
         }
     }
