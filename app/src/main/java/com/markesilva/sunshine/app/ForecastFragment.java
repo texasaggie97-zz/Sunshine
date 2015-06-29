@@ -19,12 +19,14 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.markesilva.sunshine.app.data.WeatherContract;
+import com.markesilva.sunshine.app.sync.SunshineSyncAdapter;
 
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class ForecastFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
+    private static final String LOG_TAG = ForecastFragment.class.getSimpleName();
 
     private static final int mCursurLoaderId = 0;
     // We will store the position of the selected item in the instance state to work around
@@ -142,7 +144,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
                     String locationSetting = Utility.getPreferredLocation(getActivity());
                     Uri u = WeatherContract.WeatherEntry.buildWeatherLocationWithDate(
                             locationSetting, cursor.getLong(COL_WEATHER_DATE));
-                    ((Callback)getActivity()).onItemSelected(u);
+                    ((Callback) getActivity()).onItemSelected(u);
                 }
                 mPosition = position;
             }
@@ -166,9 +168,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     }
     private void updateWeather()
     {
-        FetchWeatherTask weatherTask = new FetchWeatherTask(getActivity());
-        String location = Utility.getPreferredLocation(getActivity());
-        weatherTask.execute(location);
+        SunshineSyncAdapter.syncImmediately(getActivity());
     }
 
     @Override
